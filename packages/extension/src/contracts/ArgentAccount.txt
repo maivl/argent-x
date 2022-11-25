@@ -73122,7 +73122,7 @@
                 "type": "const",
                 "value": 1387988583969094862956788899343599960070518480842441785602446058600435897039
             },
-            "contracts.account.library.ArgentModel.CHANGE_GUARDIAN_SELECTOR": {
+            "contracts.account.library.ArgentModel.ACCOUNT_CHANGE_GUARDIAN_SELECTOR": {
                 "type": "const",
                 "value": 1296071702357547150019664216025682391016361613613945351022196390148584441374
             },

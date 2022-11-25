@@ -1,6 +1,6 @@
 import { isString } from "lodash-es"
 import { useMemo } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 
 const route = <T extends (..._: any[]) => string>(
   ...[value, path]: [routeAndPath: string] | [routeWithParams: T, path: string]
@@ -32,6 +32,15 @@ export const useQuery = () => {
 export const useReturnTo = () => {
   /** get() returns null for missing value, cleaner to return undefined */
   return useQuery().get("returnTo") || undefined
+}
+
+export const useRouteAccountAddress = () => {
+  const { accountAddress } = useParams()
+  return accountAddress
+}
+
+export const useRouteEmailAddress = () => {
+  return useQuery().get("email") || undefined
 }
 
 export const routes = {
@@ -94,6 +103,29 @@ export const routes = {
     "/accounts/:accountAddress",
   ),
   addAccount: route("/accounts/new"),
+  shieldAccountStart: route(
+    (accountAddress) => `/accounts/${accountAddress}/shield`,
+    "/accounts/:accountAddress/shield",
+  ),
+  shieldAccountEmail: route(
+    (accountAddress) => `/accounts/${accountAddress}/shield/email`,
+    "/accounts/:accountAddress/shield/email",
+  ),
+  shieldAccountOTP: route(
+    (accountAddress, email) =>
+      `/accounts/${accountAddress}/shield/otp?email=${encodeURIComponent(
+        email,
+      )}`,
+    "/accounts/:accountAddress/shield/otp",
+  ),
+  shieldAccountAction: route(
+    (accountAddress) => `/accounts/${accountAddress}/shield/action`,
+    "/accounts/:accountAddress/shield/action",
+  ),
+  shieldAccountFinish: route(
+    (accountAddress) => `/accounts/${accountAddress}/shield/finish`,
+    "/accounts/:accountAddress/shield/finish",
+  ),
   newToken: route("/tokens/new"),
   funding: route("/funding"),
   fundingBridge: route("/funding/bridge"),

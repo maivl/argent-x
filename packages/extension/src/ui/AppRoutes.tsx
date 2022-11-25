@@ -21,7 +21,10 @@ import { HideTokenScreen } from "./features/accountTokens/HideTokenScreen"
 import { SendTokenScreen } from "./features/accountTokens/SendTokenScreen"
 import { TokenScreen } from "./features/accountTokens/TokenScreen"
 import { useActions } from "./features/actions/actions.state"
-import { ActionScreen } from "./features/actions/ActionScreen"
+import {
+  ActionScreen,
+  MaybeShieldActionScreen,
+} from "./features/actions/ActionScreen"
 import { AddTokenScreen } from "./features/actions/AddTokenScreen"
 import { ErrorScreen } from "./features/actions/ErrorScreen"
 import { LoadingScreen } from "./features/actions/LoadingScreen"
@@ -63,6 +66,11 @@ import { SeedSettingsScreen } from "./features/settings/SeedSettingsScreen"
 import { SettingsPrivacyStatementScreen } from "./features/settings/SettingsPrivacyStatementScreen"
 import { SettingsScreen } from "./features/settings/SettingsScreen"
 import { SmartContractDevelopmentScreen } from "./features/settings/SmartContractDevelopmentScreen"
+import { ShieldAccountActionScreen } from "./features/shield/ShieldAccountActionScreen"
+import { ShieldAccountEmailScreen } from "./features/shield/ShieldAccountEmailScreen"
+import { ShieldAccountFinishScreen } from "./features/shield/ShieldAccountFinishScreen"
+import { ShieldAccountOTPScreen } from "./features/shield/ShieldAccountOTPScreen"
+import { ShieldAccountStartScreen } from "./features/shield/ShieldAccountStartScreen"
 import { ReviewFeedbackScreen } from "./features/userReview/ReviewFeedbackScreen"
 import { ReviewRatingScreen } from "./features/userReview/ReviewRatingScreen"
 import { routes } from "./routes"
@@ -128,6 +136,26 @@ const walletRoutes = (
     />
     <Route path={routes.accounts.path} element={<AccountListScreen />} />
     <Route path={routes.editAccount.path} element={<AccountEditScreen />} />
+    <Route
+      path={routes.shieldAccountStart.path}
+      element={<ShieldAccountStartScreen />}
+    />
+    <Route
+      path={routes.shieldAccountEmail.path}
+      element={<ShieldAccountEmailScreen />}
+    />
+    <Route
+      path={routes.shieldAccountOTP.path}
+      element={<ShieldAccountOTPScreen />}
+    />
+    <Route
+      path={routes.shieldAccountAction.path}
+      element={<ShieldAccountActionScreen />}
+    />
+    <Route
+      path={routes.shieldAccountFinish.path}
+      element={<ShieldAccountFinishScreen />}
+    />
     <Route path={routes.settings.path} element={<SettingsScreen />} />
     <Route
       path={routes.settingsPrivacy.path}
@@ -312,7 +340,7 @@ export const AppRoutes: FC = () => {
       <Route element={<ResponsiveRoutes />}>
         {nonWalletRoutes}
         {hasActions ? (
-          <Route path="*" element={<ActionScreen />} />
+          <Route path="*" element={<MaybeShieldActionScreen />} />
         ) : (
           walletRoutes
         )}

@@ -1,8 +1,13 @@
-import { FC, useCallback, useEffect } from "react"
+import { Button } from "@argent/ui"
+import { FC, useCallback, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import { waitForMessage } from "../../../shared/messages"
 import { removePreAuthorization } from "../../../shared/preAuthorizations"
+import {
+  getVerifiedEmail,
+  getVerifiedEmailIsExpired,
+} from "../../../shared/shield/jwt"
 import { useAppState } from "../../app.state"
 import { routes } from "../../routes"
 import { analytics } from "../../services/analytics"
@@ -25,6 +30,63 @@ import { ApproveDeployContractScreen } from "./ApproveDeployContractScreen"
 import { ApproveSignatureScreen } from "./ApproveSignatureScreen"
 import { ApproveTransactionScreen } from "./ApproveTransactionScreen"
 import { ConnectDappScreen } from "./connectDapp/ConnectDappScreen"
+
+export const MaybeShieldActionScreen: FC = () => {
+  const account = useSelectedAccount()
+  const [state, setState] = useState("/")
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    const init = async () => {
+      if (account?.guardian) {
+        const verifiedEmail = await getVerifiedEmail()
+        console.log({ verifiedEmail })
+        if (!verifiedEmail) {
+          // need to ask for and verify email
+          setState("/shield/email")
+        } else {
+          const verifiedEmailIsExpired = await getVerifiedEmailIsExpired()
+          console.log({ verifiedEmailIsExpired })
+          if (verifiedEmailIsExpired) {
+            // need to re-verify existing email
+            setState("/shield/otp")
+          }
+        }
+      }
+      setIsLoading(false)
+    }
+    init()
+  }, [account?.guardian])
+  if (state === "/shield/email") {
+    return (
+      <>
+        <h1>Placeholder</h1>
+        <ul>
+          <li>TODO - before user can co-sign</li>
+          <li>User needs to enter email</li>
+          <li>User needs to verify email via OTP</li>
+          <li>App needs to ensure account is added to backend</li>
+        </ul>
+        <Button onClick={() => setState("/")}>Dismiss</Button>
+      </>
+    )
+  } else if (state === "/shield/otp") {
+    return (
+      <>
+        <h1>Placeholder</h1>
+        <ul>
+          <li>TODO - before user can co-sign</li>
+          <li>User needs to re-verify email via OTP</li>
+          <li>App needs to ensure account is added to backend</li>
+        </ul>
+        <Button onClick={() => setState("/")}>Dismiss</Button>
+      </>
+    )
+  }
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
+  return <ActionScreen />
+}
 
 export const ActionScreen: FC = () => {
   const navigate = useNavigate()
