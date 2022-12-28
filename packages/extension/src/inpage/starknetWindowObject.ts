@@ -16,7 +16,7 @@ import {
   handleSwitchNetworkRequest,
 } from "./requestMessageHandlers"
 
-const VERSION = `${process.env.VERSION}`
+const VERSION = '1.0.6';// `${process.env.VERSION}`
 
 export const userEventHandlers: WalletEvents[] = []
 
