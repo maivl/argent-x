@@ -57,17 +57,20 @@ export const recover = async ({
     }
 
     if (showAccountList || !selectedAccount) {
-      return routes.accounts()
+      // return routes.accounts()
+      return '/account/list';
     }
 
     if (showHiddenAccountList && networkId) {
       return routes.accountsHidden(networkId)
     }
 
-    return routes.accountTokens()
+    // return routes.accountTokens()
+    return '/account/tokens';
   } catch (e: any) {
     console.error("Recovery error:", e)
     useAppState.setState({ error: `${e}` })
-    return routes.error()
+    // return routes.error()
+    return '/404';
   }
 }
