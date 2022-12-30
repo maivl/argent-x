@@ -1,5 +1,6 @@
 import { useMemo } from "react"
 import create from "zustand"
+import { persist } from 'zustand/middleware'
 
 import {
   getNetworkSelector,
@@ -92,7 +93,12 @@ interface State {
   showMigrationScreen?: boolean // FIXME: remove when depricated accounts do not longer work
 }
 
-export const useSelectedAccountStore = create<State>(() => ({}))
+export const useSelectedAccountStore = create<State>(
+  persist(
+      () => ({}),
+      { name: 'core:currentAccount' }
+  ) as any
+)
 
 export const useSelectedAccount = () => {
   const allAccounts = useAccounts({ showHidden: true })
