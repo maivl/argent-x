@@ -60,15 +60,6 @@ export const SESSION_DURATION = isDev ? 24 * 60 * 60 : 30 * 60 // 30 mins in pro
 
 const CHECK_OFFSET = 10
 
-// export const PROXY_CONTRACT_CLASS_HASHES = [
-//   "0x25ec026985a3bf9d0cc1fe17326b245dfdc3ff89b8fde106542a3ea56c5a918",
-// ]
-// export const ARGENT_ACCOUNT_CONTRACT_CLASS_HASHES = [
-//   "0x1a7820094feaf82d53f53f214b81292d717e7bb9a92bb2488092cd306f3993f",
-//   "0x3e327de1c40540b98d05cbcb13552008e36f0ec8d61d46956d2f9752c294328",
-//   "0x7e28fb0161d10d1cf7fe1f13e7ca57bce062731a3bd04494dfd2d0412699727",
-// ]
-
 export const PROXY_CONTRACT_CLASS_HASHES = [
   '0x171683af4b316ea9f3cc738e15a5742a8c463eb016e6ba6be10433acde2f5f0'
 ];
