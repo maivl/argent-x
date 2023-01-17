@@ -260,6 +260,7 @@ export class Wallet {
               calldata: stark.compileCalldata({
                 signer: starkPub,
                 guardian: "0",
+                escape_mgr: "0x013a7f6d7da5860d2fdbaec1bdddae9a0535af04c7c6fb144343bf0ac2928193",
               }),
             }),
             0,
@@ -515,7 +516,7 @@ export class Wallet {
     const constructorCallData = {
       implementation: accountClassHash,
       selector: getSelectorFromName("initialize"),
-      calldata: stark.compileCalldata({ signer: starkPub, guardian: "0" }),
+      calldata: stark.compileCalldata({ signer: starkPub, guardian: "0", escape_mgr: "0x013a7f6d7da5860d2fdbaec1bdddae9a0535af04c7c6fb144343bf0ac2928193" }),
     }
 
     const deployAccountPayload = {
@@ -590,7 +591,7 @@ export class Wallet {
       constructorCalldata: stark.compileCalldata({
         implementation: accountClassHash,
         selector: getSelectorFromName("initialize"),
-        calldata: stark.compileCalldata({ signer: starkPub, guardian: "0" }),
+        calldata: stark.compileCalldata({ signer: starkPub, guardian: "0", escape_mgr: "0x013a7f6d7da5860d2fdbaec1bdddae9a0535af04c7c6fb144343bf0ac2928193" }),
       }),
       addressSalt: starkPub,
       signature: starkPair.getPrivate(),
