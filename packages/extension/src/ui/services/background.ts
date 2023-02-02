@@ -18,5 +18,5 @@ if (IS_DEV) {
   messageStream.subscribe(([message]) => {
     console.log("Received message", message)
   })
-  require("../features/dev/hotReload")
+  // require("../features/dev/hotReload")
 }
