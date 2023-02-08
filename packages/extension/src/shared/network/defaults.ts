@@ -70,4 +70,4 @@ export const defaultNetworks: Network[] = [
   },
 ]
 
-export const defaultNetwork = defaultNetworks[1]
+export const defaultNetwork = defaultNetworks[2]
