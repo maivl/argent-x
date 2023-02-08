@@ -61,10 +61,10 @@ export const SESSION_DURATION = isDev ? 24 * 60 * 60 : 30 * 60 // 30 mins in pro
 const CHECK_OFFSET = 10
 
 export const PROXY_CONTRACT_CLASS_HASHES = [
-  '0x171683af4b316ea9f3cc738e15a5742a8c463eb016e6ba6be10433acde2f5f0'
+  '0xfcae2a784fdea7531bab194f2302e429671a5b31d1c3306ab3ff3a14459464'
 ];
 export const ARGENT_ACCOUNT_CONTRACT_CLASS_HASHES = [
-  '0x654a9d76476d93f245d08f7425e693aef5257d3709d755b8bb2e518b38458d6'
+  '0x144304b418a264f20b427988261aeb4cb325fabcfbb1df2851de5db416d8b14'
 ];
 
 export interface WalletSession {
@@ -260,7 +260,6 @@ export class Wallet {
               calldata: stark.compileCalldata({
                 signer: starkPub,
                 guardian: "0",
-                escape_mgr: "0x013a7f6d7da5860d2fdbaec1bdddae9a0535af04c7c6fb144343bf0ac2928193",
               }),
             }),
             0,
@@ -516,7 +515,7 @@ export class Wallet {
     const constructorCallData = {
       implementation: accountClassHash,
       selector: getSelectorFromName("initialize"),
-      calldata: stark.compileCalldata({ signer: starkPub, guardian: "0", escape_mgr: "0x013a7f6d7da5860d2fdbaec1bdddae9a0535af04c7c6fb144343bf0ac2928193" }),
+      calldata: stark.compileCalldata({ signer: starkPub, guardian: "0",}),
     }
 
     const deployAccountPayload = {
@@ -591,7 +590,7 @@ export class Wallet {
       constructorCalldata: stark.compileCalldata({
         implementation: accountClassHash,
         selector: getSelectorFromName("initialize"),
-        calldata: stark.compileCalldata({ signer: starkPub, guardian: "0", escape_mgr: "0x013a7f6d7da5860d2fdbaec1bdddae9a0535af04c7c6fb144343bf0ac2928193" }),
+        calldata: stark.compileCalldata({ signer: starkPub, guardian: "0", }),
       }),
       addressSalt: starkPub,
       signature: starkPair.getPrivate(),
