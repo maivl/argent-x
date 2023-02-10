@@ -135,7 +135,7 @@ export const executeTransactionAction = async (
   const transaction = await starknetAccount.execute(transactions, abis, {
     ...transactionsDetail,
     nonce,
-    maxFee,
+    maxFee: number.toHex(number.toBN(maxFee).mul(number.toBN(2))),
   })
 
   if (!checkTransactionHash(transaction.transaction_hash)) {
