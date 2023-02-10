@@ -64,7 +64,7 @@ export const PROXY_CONTRACT_CLASS_HASHES = [
   '0xfcae2a784fdea7531bab194f2302e429671a5b31d1c3306ab3ff3a14459464'
 ];
 export const ARGENT_ACCOUNT_CONTRACT_CLASS_HASHES = [
-  '0x144304b418a264f20b427988261aeb4cb325fabcfbb1df2851de5db416d8b14'
+  '0x338f91467ebb6353eb72e9ef25b8e8975cd5aec951da70a373ac3c5530538bc'
 ];
 
 export interface WalletSession {
@@ -258,8 +258,7 @@ export class Wallet {
               implementation: accountClassHash,
               selector: getSelectorFromName("initialize"),
               calldata: stark.compileCalldata({
-                signer: starkPub,
-                escape_mgr: "0x01834385b2be270814fcee507bf869a9855499bc4f98fa310cf5775cba6fd677"
+                signer: starkPub
               }),
             }),
             0,
@@ -515,7 +514,7 @@ export class Wallet {
     const constructorCallData = {
       implementation: accountClassHash,
       selector: getSelectorFromName("initialize"),
-      calldata: stark.compileCalldata({ signer: starkPub, escape_mgr: "0x01834385b2be270814fcee507bf869a9855499bc4f98fa310cf5775cba6fd677"}),
+      calldata: stark.compileCalldata({ signer: starkPub}),
     }
 
     const deployAccountPayload = {
@@ -590,7 +589,7 @@ export class Wallet {
       constructorCalldata: stark.compileCalldata({
         implementation: accountClassHash,
         selector: getSelectorFromName("initialize"),
-        calldata: stark.compileCalldata({ signer: starkPub, escape_mgr: "0x01834385b2be270814fcee507bf869a9855499bc4f98fa310cf5775cba6fd677"}),
+        calldata: stark.compileCalldata({ signer: starkPub}),
       }),
       addressSalt: starkPub,
       signature: starkPair.getPrivate(),

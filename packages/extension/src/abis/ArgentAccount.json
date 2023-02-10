@@ -141,7 +141,7 @@
     {
         "data": [],
         "keys": [],
-        "name": "escape_canceled",
+        "name": "escape_signer_canceled",
         "type": "event"
     },
     {
@@ -343,10 +343,6 @@
             {
                 "name": "signer",
                 "type": "felt"
-            },
-            {
-                "name": "escape_mgr",
-                "type": "felt"
             }
         ],
         "name": "initialize",
@@ -416,28 +412,6 @@
     {
         "inputs": [
             {
-                "name": "newSigner",
-                "type": "felt"
-            }
-        ],
-        "name": "changeSigner",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "newGuardian",
-                "type": "felt"
-            }
-        ],
-        "name": "changeGuardian",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "name": "guardian_ptr_len",
                 "type": "felt"
             },
@@ -446,81 +420,13 @@
                 "type": "felt*"
             }
         ],
-        "name": "changeGuardians",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "newGuardian",
-                "type": "felt"
-            }
-        ],
-        "name": "changeGuardianBackup",
+        "name": "addGuardians",
         "outputs": [],
         "type": "function"
     },
     {
         "inputs": [],
-        "name": "triggerEscapeGuardian",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "triggerEscapeSigner",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "cancelEscape",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "newGuardian",
-                "type": "felt"
-            }
-        ],
-        "name": "escapeGuardian",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "newSigner",
-                "type": "felt"
-            }
-        ],
-        "name": "escapeSigner",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "name": "guardian1",
-                "type": "felt"
-            },
-            {
-                "name": "guardian2",
-                "type": "felt"
-            },
-            {
-                "name": "guardian3",
-                "type": "felt"
-            },
-            {
-                "name": "newOwner",
-                "type": "felt"
-            }
-        ],
-        "name": "triggerEscapeOwner",
+        "name": "cancelEscapeSigner",
         "outputs": [],
         "type": "function"
     },
@@ -535,7 +441,7 @@
                 "type": "felt*"
             }
         ],
-        "name": "escapeOwner",
+        "name": "escapeSigner",
         "outputs": [],
         "type": "function"
     },
@@ -601,56 +507,8 @@
     },
     {
         "inputs": [],
-        "name": "getGuardian",
+        "name": "getEscapeSigner",
         "outputs": [
-            {
-                "name": "guardian",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getGuardianBackup",
-        "outputs": [
-            {
-                "name": "guardianBackup",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getEscape",
-        "outputs": [
-            {
-                "name": "activeAt",
-                "type": "felt"
-            },
-            {
-                "name": "type",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "getEscapeOwner",
-        "outputs": [
-            {
-                "name": "escapeTime",
-                "type": "felt"
-            },
-            {
-                "name": "escapeId",
-                "type": "felt"
-            },
             {
                 "name": "guardian1",
                 "type": "felt"
@@ -660,11 +518,7 @@
                 "type": "felt"
             },
             {
-                "name": "guardian3",
-                "type": "felt"
-            },
-            {
-                "name": "newOwner",
+                "name": "new_signer",
                 "type": "felt"
             }
         ],
