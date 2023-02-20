@@ -7,7 +7,7 @@ import { sendMessage, waitForMessage } from "./messageActions"
 import { getIsPreauthorized } from "./preAuthorization"
 import { starknetWindowObject, userEventHandlers } from "./starknetWindowObject"
 
-const INJECT_NAMES = ["starknet_civia"]
+const INJECT_NAMES = ["starknet", "starknet_civia"]
 
 function attach() {
   INJECT_NAMES.forEach((name) => {
