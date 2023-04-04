@@ -18,7 +18,7 @@ export const getMulticallForNetwork = memoize(
       )
     }
     const multicall = new Multicall(
-      getProvider(network),
+      getProvider(network) as any,
       network.multicallAddress,
     )
     return multicall
