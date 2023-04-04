@@ -64,7 +64,7 @@ export const PROXY_CONTRACT_CLASS_HASHES = [
   '0xfcae2a784fdea7531bab194f2302e429671a5b31d1c3306ab3ff3a14459464'
 ];
 export const ARGENT_ACCOUNT_CONTRACT_CLASS_HASHES = [
-  '0x338f91467ebb6353eb72e9ef25b8e8975cd5aec951da70a373ac3c5530538bc'
+  '0x4816cc53998d36d98ee0d96f3c9909bb4d33f15af9144a905e61bf605f657f1'
 ];
 
 export interface WalletSession {

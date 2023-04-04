@@ -29,80 +29,6 @@
     {
         "data": [
             {
-                "name": "new_signer",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "signer_changed",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
-                "name": "new_guardian",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "guardian_changed",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
-                "name": "new_guardian",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "guardian_backup_changed",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
-                "name": "active_at",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "escape_guardian_triggered",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
-                "name": "active_at",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "escape_signer_triggered",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
-                "name": "escape_time",
-                "type": "felt"
-            },
-            {
-                "name": "escape_id",
-                "type": "felt"
-            },
-            {
-                "name": "new_owner",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "escape_owner_triggered",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
                 "name": "replace_time",
                 "type": "felt"
             },
@@ -147,17 +73,6 @@
     {
         "data": [
             {
-                "name": "new_guardian",
-                "type": "felt"
-            }
-        ],
-        "keys": [],
-        "name": "guardian_escaped",
-        "type": "event"
-    },
-    {
-        "data": [
-            {
                 "name": "new_signer",
                 "type": "felt"
             }
@@ -175,6 +90,17 @@
         ],
         "keys": [],
         "name": "account_upgraded",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "address",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "address_binded",
         "type": "event"
     },
     {
@@ -482,6 +408,21 @@
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "name": "addr",
+                "type": "felt"
+            },
+            {
+                "name": "signature",
+                "type": "felt"
+            }
+        ],
+        "name": "bindAddress",
+        "outputs": [],
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "getSigner",
         "outputs": [
@@ -593,6 +534,39 @@
             {
                 "name": "is_valid",
                 "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "addr",
+                "type": "felt"
+            }
+        ],
+        "name": "isAddressBinded",
+        "outputs": [
+            {
+                "name": "binded",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getAllBindedAddrss",
+        "outputs": [
+            {
+                "name": "addrs_len",
+                "type": "felt"
+            },
+            {
+                "name": "addrs",
+                "type": "felt*"
             }
         ],
         "stateMutability": "view",
