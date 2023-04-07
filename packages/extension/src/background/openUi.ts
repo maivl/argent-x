@@ -22,7 +22,7 @@ async function openPopup() {
     url: [browser.runtime.getURL("/*")],
   })
 
-  if (existingPopup && existingPopup.windowId) {
+  if (existingPopup && existingPopup.windowId && existingPopup.active) {
     return browser.windows.update(existingPopup.windowId, { focused: true })
   }
 
