@@ -35,6 +35,10 @@ export type TransactionMessage =
       type: "EXECUTE_TRANSACTION"
       data: ExecuteTransactionRequest
     }
+  | {
+    type: "CIVIADAPP_EXECUTE_TRANSACTION"
+    data: ExecuteTransactionRequest
+  }
   | { type: "EXECUTE_TRANSACTION_RES"; data: { actionHash: string } }
   | { type: "TRANSACTION_UPDATES"; data: Transaction[] }
   | {

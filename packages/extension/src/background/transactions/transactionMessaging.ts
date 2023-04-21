@@ -9,7 +9,8 @@ export const handleTransactionMessage: HandleMessage<
   TransactionMessage
 > = async ({ msg, background: { wallet, actionQueue }, respond: respond }) => {
   switch (msg.type) {
-    case "EXECUTE_TRANSACTION": {
+    case "EXECUTE_TRANSACTION":
+    case "CIVIADAPP_EXECUTE_TRANSACTION": {
       const { meta } = await actionQueue.push({
         type: "TRANSACTION",
         payload: msg.data,

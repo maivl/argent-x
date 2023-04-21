@@ -10,7 +10,8 @@ export const handleMiscellaneousMessage: HandleMessage<
   MiscellaneousMessage
 > = async ({ msg, messagingKeys: { publicKeyJwk }, respond }) => {
   switch (msg.type) {
-    case "OPEN_UI": {
+    case "OPEN_UI":
+    case "CIVIADAPP_OPEN_UI": {
       return openUi()
     }
 
